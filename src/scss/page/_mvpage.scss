@@ -1,0 +1,234 @@
+.Mvpage {
+  padding-bottom: 100px;
+  .Mvpage__heading {
+    @include text(20px, bold);
+    padding: 15px;
+  }
+
+  .Mvpage__content {
+    .mv__item {
+      .mv__item__img {
+        position: relative;
+        overflow: hidden;
+
+        .mv_image {
+          border-radius: 5px;
+        }
+
+        .mv__overplay {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          cursor: pointer;
+
+          .icon_play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        .time {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 5px;
+          padding: 5px;
+          @include text(12px, normal);
+        }
+      }
+
+      .mv_des {
+        display: flex;
+        padding: 15px 0;
+
+        .mv__des__img {
+          @include sizeImage(40px, 40px);
+          border-radius: 50%;
+        }
+
+        .mv__des__info {
+          margin-left: 10px;
+
+          .mv__des__info__name {
+            @include text(15px, bold);
+          }
+
+          .mv__des__info__name__author {
+            @include text(12px, normal);
+            color: hsla(0, 0%, 100%, 0.5);
+          }
+        }
+      }
+
+      &:hover {
+        .mv__overplay {
+          display: block;
+        }
+
+        .mv_image {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.MvScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  transition: all ease-out 0.5s;
+
+  .MvScreen__overplay {
+    width: 100%;
+    filter: blur(10px);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .MvScreen__overplay__cover {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .MvScreen__top {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    color: $white;
+
+    .MvScreen__top__left {
+      display: flex;
+      align-items: center;
+
+      .MvScreen__top__left__img {
+        @include sizeImage(40px, 40px);
+        border-radius: 50%;
+      }
+
+      .MvScreen__top__left__des {
+        padding-left: 10px;
+
+        .title {
+          @include text(20px, bold);
+        }
+
+        .sub {
+          @include text(15px, normal);
+          color: hsla(0, 0%, 100%, 0.5);
+
+          &:hover {
+            color: hotpink;
+          }
+        }
+      }
+    }
+
+    .MvScreen__top__right {
+      .icon_close {
+        padding: 8px;
+        border-radius: 50%;
+        background-color: hsla(0, 0%, 100%, 0.1);
+        @include CenterElement;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .video {
+    position: absolute;
+    display: flex;
+    top: 20%;
+    padding: 0 50px;
+    right: 0;
+    left: 0;
+
+    .listPlay {
+      height: 500px;
+      max-height: 500px;
+      overflow-y: auto;
+      flex: 1;
+      margin-left: 20px;
+      background-color: hsla(0, 0%, 100%, 0.10196078431372549);
+
+      .listplay__item {
+        position: relative;
+        margin: 10px 0;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        .listplay__item_hinhanh {
+          position: relative;
+
+          img {
+            @include sizeImage(120px, 67px);
+            border-radius: 5px;
+          }
+
+          .play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include text(12px, normal);
+            color: $white;
+          }
+        }
+
+        .listplay__item__overplay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          background-color: hsla(0, 0%, 100%, 0.05);
+        }
+      }
+
+      .listplay__item__des {
+        color: $white;
+        padding-left: 10px;
+
+        .listplay__item__des__title {
+          @include text(15px, bold);
+        }
+
+        .listplay__item__des__sub {
+          @include text(12px, normal);
+          color: hsla(0, 0%, 100%, 0.5);
+
+          &:hover {
+            color: hotpink;
+          }
+        }
+      }
+    }
+  }
+}

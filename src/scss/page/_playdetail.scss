@@ -1,0 +1,111 @@
+.playListDetai {
+  padding: 80px 0;
+
+  .playListDetai__left {
+    .playListDetai__img {
+      border-radius: 50%;
+      @include sizeImage(300px, 300px);
+
+      position: relative;
+      overflow: hidden;
+      left: 10%;
+
+      &:hover {
+        .playListDetai__img__content {
+          transform: scale(2);
+          transition: all ease-in-out 1s;
+        }
+      }
+
+      .playListDetai__img__content {
+        @include sizeImage(100%, 100%);
+        border-radius: 50%;
+        transform: scale(1.5);
+      }
+
+      .overplay {
+        position: absolute;
+        top: 0;
+        cursor: pointer;
+        left: 0;
+        @include sizeImage(100%, 100%);
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4);
+
+        .icon_play {
+          @include CenterElement;
+          height: 100%;
+          @include text(40px, normal);
+
+          img {
+            width: 40px;
+          }
+        }
+      }
+    }
+
+    .playListDetai__img.active {
+      animation: xoayvong 20s linear 0s infinite;
+    }
+
+    .playListDetai__des {
+      text-align: center;
+      margin-top: 20px;
+
+      .namesong {
+        @include text(20px, bold);
+        margin: 0;
+      }
+
+      .update,
+      .like {
+        @include text(12px, normal);
+        margin: 5px 0;
+        color: hsla(0, 0%, 100%, 0.5);
+      }
+    }
+
+    .btn_stop {
+      @include CenterElement;
+
+      .stop {
+        outline: none;
+        border: none;
+        margin-top: 10px;
+        background-color: #7200a1;
+        padding: 8px 30px;
+        color: $white;
+        text-transform: uppercase;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .favoriesMore {
+      @include CenterElement;
+      padding-top: 20px;
+
+      .favoriesMore__icon {
+        margin: 0 10px;
+        padding: 10px;
+        background-color: $black-231b2e;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes xoayvong {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}

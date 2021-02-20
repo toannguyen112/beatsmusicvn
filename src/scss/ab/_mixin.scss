@@ -1,0 +1,68 @@
+@mixin sizeImage($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin text($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin CenterElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin box($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin btnHover {
+  @include box(40px, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  margin: 0 10px;
+
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+  }
+
+  background-color: $black-120c1c;
+  color: white;
+  outline: none;
+}
+
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

@@ -1,0 +1,7 @@
+.square {
+  @include box(50px);
+}
+
+.rectangle {
+  @include box(100px, 50px);
+}

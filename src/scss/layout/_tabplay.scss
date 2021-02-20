@@ -1,0 +1,139 @@
+.tabPlay {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 325px;
+  background-color: rgb(18, 8, 34);
+  color: $white;
+  transition: all ease 0.9s;
+  z-index: 1;
+
+  .boxnav {
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .boxnav__center {
+      border-radius: 20px;
+      padding: 8px;
+      margin-right: 10px;
+      background-color: hsla(0, 0%, 100%, 0.1);
+
+      .listplaying {
+        font-size: 12px;
+        padding: 8px;
+        color: $white-0;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 20px;
+      }
+
+      .listplaying.active {
+        background-color: rgb(106, 100, 117);
+        @extend .listplaying;
+        color: $white;
+      }
+    }
+  }
+
+  .tabPlay__list {
+    padding: 0 10px;
+    overflow-y: auto;
+    max-height: 100vh;
+
+    .tabPlay__list__item {
+      color: $white;
+      border-radius: 5px;
+      padding: 10px;
+      display: flex;
+      margin-bottom: 5px;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .tabPlay__list__item__left {
+        display: flex;
+
+        .tabPlay__list__item__left__img {
+          position: relative;
+
+          img {
+            @include sizeImage(45px, 45px);
+            border-radius: 5px;
+          }
+
+          .overplay_song {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $white-0;
+          }
+
+          .overplay_gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            img {
+              width: 20px;
+              height: 20px;
+              border-radius: 0;
+            }
+          }
+        }
+
+        .tabPlay__list__item__left__des {
+          padding: 0 10px;
+
+          .name {
+            @include text(13px, bold);
+            margin: 0;
+          }
+
+          .atr {
+            @include text(12px, normal);
+            color: hsla(0, 0%, 100%, 0.5);
+            margin: 0;
+          }
+        }
+      }
+
+      .tabPlay__list__item__right {
+        display: flex;
+        align-items: center;
+
+        .tabPlay__list__item__right__icon {
+          display: none;
+          margin: 0 10px;
+        }
+      }
+
+      &:hover {
+        background-color: #231b2e;
+
+        .tabPlay__list__item__left__img .overplay_song,
+        .tabPlay__list__item__right__icon {
+          display: block;
+        }
+      }
+    }
+
+    .tabPlay__list__item.active {
+      background-color: #7200a1;
+    }
+  }
+
+  .tabPlay__list::-webkit-scrollbar {
+    width: 2px;
+    background-color: #fff;
+  }
+
+  .tabPlay__list::-webkit-scrollbar-thumb {
+    background-color: #000;
+  }
+}

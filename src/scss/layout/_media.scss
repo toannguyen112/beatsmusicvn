@@ -1,0 +1,66 @@
+.playListDetai__listSong {
+  padding: 0 20px;
+
+  .playListDetai__listSong__item {
+    padding: 10px;
+    color: hsla(0, 0%, 100%, 0.5);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.05);
+    cursor: pointer;
+
+    .playListDetai__listSong__item__img {
+      .playListDetai__listSong__item__img__detail {
+        position: relative;
+
+        .playListDetai__listSong__item__img__content {
+          border-radius: 5px;
+        }
+
+        .overplay_song {
+          position: absolute;
+          display: none;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $white;
+        }
+      }
+
+      .playListDetai__listSong__item__des {
+        .namesong {
+          @include text(15px, normal);
+          color: $white;
+        }
+
+        .atrist {
+          @include text(12px, normal);
+        }
+      }
+    }
+
+    .time,
+    .more {
+      @include text(12px, normal);
+      line-height: 30px;
+      text-align: right;
+    }
+    .more {
+      text-align: right;
+      i {
+        padding: 10px;
+        border-radius: 50%;
+        &:hover {
+          background-color: #423a4b;
+          color: $white;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $black-231b2e;
+
+      .playListDetai__listSong__item__img__detail .overplay_song {
+        display: block;
+      }
+    }
+  }
+}
